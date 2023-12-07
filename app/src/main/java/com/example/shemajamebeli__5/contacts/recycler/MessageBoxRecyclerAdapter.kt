@@ -40,8 +40,8 @@ class MessageBoxRecyclerAdapter :
         private fun bindContactItem(item: ContactItem) {
             with(binding) {
                 tvUserName.text = item.owner
-                tvTime.text = item.last_active
-                tvMessage.text = item.last_message
+                tvTime.text = item.lastActive
+                tvMessage.text = item.lastMessage
                 Glide.with(itemView)
                     .load(item.image)
                     .into(ivImage)
@@ -50,23 +50,23 @@ class MessageBoxRecyclerAdapter :
 
         private fun checkUnreadMessage(item: ContactItem) {
             with(binding) {
-                if (item.unread_messages > 0) {
+                if (item.unreadMessages > 0) {
                     tvUserName.setTextColor(Color.WHITE)
                     tvTime.setTextColor(Color.WHITE)
                     tvMessage.setTextColor(Color.WHITE)
                 }
 
-                if (item.unread_messages > 1) {
+                if (item.unreadMessages > 1) {
                     tvTyping.visibility = View.GONE
                     tvMissMessage.visibility = View.VISIBLE
-                    tvMissMessage.text = item.unread_messages.toString()
+                    tvMissMessage.text = item.unreadMessages.toString()
                 }
             }
         }
 
         private fun checkTyping(item: ContactItem) {
             with(binding) {
-                if (item.is_typing) {
+                if (item.isTyping) {
                     tvTyping.visibility = View.VISIBLE
                     tvMissMessage.visibility = View.GONE
                 } else {
@@ -88,7 +88,7 @@ class MessageBoxRecyclerAdapter :
         private fun bindContactItem(item: ContactItem) {
             with(binding) {
                 tvUserName.text = item.owner
-                tvTime.text = item.last_active
+                tvTime.text = item.lastActive
                 Glide.with(itemView)
                     .load(item.image)
                     .into(ivImage)
@@ -97,23 +97,23 @@ class MessageBoxRecyclerAdapter :
 
         private fun checkUnreadMessage(item: ContactItem) {
             with(binding) {
-                if (item.unread_messages > 0) {
+                if (item.unreadMessages > 0) {
                     tvUserName.setTextColor(Color.WHITE)
                     tvTime.setTextColor(Color.WHITE)
                     tvMessage.setTextColor(Color.WHITE)
                 }
 
-                if (item.unread_messages > 1) {
+                if (item.unreadMessages > 1) {
                     tvTyping.visibility = View.GONE
                     tvMissMessage.visibility = View.VISIBLE
-                    tvMissMessage.text = item.unread_messages.toString()
+                    tvMissMessage.text = item.unreadMessages.toString()
                 }
             }
         }
 
         private fun checkTyping(item: ContactItem) {
             with(binding) {
-                if (item.is_typing) {
+                if (item.isTyping) {
                     tvTyping.visibility = View.VISIBLE
                     tvMissMessage.visibility = View.GONE
                 } else {
@@ -135,7 +135,7 @@ class MessageBoxRecyclerAdapter :
         private fun bindContactItem(item: ContactItem){
             with(binding) {
                 tvUserName.text = item.owner
-                tvTime.text = item.last_active
+                tvTime.text = item.lastActive
                 Glide.with(itemView)
                     .load(item.image)
                     .into(ivImage)
@@ -144,23 +144,23 @@ class MessageBoxRecyclerAdapter :
 
         private fun checkUnreadMessage(item: ContactItem){
             with(binding) {
-                if (item.unread_messages > 0) {
+                if (item.unreadMessages > 0) {
                     tvUserName.setTextColor(Color.WHITE)
                     tvTime.setTextColor(Color.WHITE)
                     tvMessage.setTextColor(Color.WHITE)
                 }
 
-                if (item.unread_messages > 1) {
+                if (item.unreadMessages > 1) {
                     tvTyping.visibility = View.GONE
                     tvMissMessage.visibility = View.VISIBLE
-                    tvMissMessage.text = item.unread_messages.toString()
+                    tvMissMessage.text = item.unreadMessages.toString()
                 }
             }
         }
 
         private fun checkTyping(item: ContactItem){
             with(binding){
-                if (item.is_typing) {
+                if (item.isTyping) {
                     tvTyping.visibility = View.VISIBLE
                     tvMissMessage.visibility = View.GONE
                 } else {
@@ -171,7 +171,7 @@ class MessageBoxRecyclerAdapter :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (currentList[position].laste_message_type) {
+        return when (currentList[position].lastMessageType) {
             MessageType.TEXT.type -> 1
             MessageType.FILE.type -> 2
             MessageType.VOICE.type -> 3

@@ -15,11 +15,6 @@ import kotlinx.coroutines.launch
 class ContactFragment : BaseFragment<FragmentContactBinding>(FragmentContactBinding::inflate) {
     private lateinit var adapter: MessageBoxRecyclerAdapter
     private val viewModel: ContactViewModel by viewModels()
-    private var isClicked: Boolean = false
-
-    override fun setUp() {
-        setUpRecycler()
-    }
 
     override fun setUpObserver() {
         fetchContactData()
@@ -28,6 +23,7 @@ class ContactFragment : BaseFragment<FragmentContactBinding>(FragmentContactBind
 
     override fun bind() {
         filterClick()
+        setUpRecycler()
     }
 
     override fun listeners() {
@@ -46,10 +42,12 @@ class ContactFragment : BaseFragment<FragmentContactBinding>(FragmentContactBind
         with(binding) {
             etSearch.addTextChangedListener { text ->
                 btnFilter.setOnClickListener {
-                    viewModel.filterData(text.toString().trim())
-                    etSearch.setBackgroundResource(R.drawable.edit_text_border_rectangle_clicked)
+                    if (text.toString().isNotBlank()){
+                        viewModel.filterData(text.toString().trim())
+                        etSearch.setBackgroundResource(R.drawable.edit_text_border_rectangle_clicked)
+                    }
                 }
-                if(text.toString() == ""){
+                if (text.toString().isBlank()) {
                     etSearch.setBackgroundResource(R.drawable.edit_text_border_rectangle)
                     viewModel.filterData(text.toString())
                 }

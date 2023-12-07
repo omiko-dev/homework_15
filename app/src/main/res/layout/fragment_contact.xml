@@ -19,12 +19,14 @@
             android:layout_width="0dp"
             android:paddingStart="30dp"
             android:hint="@string/search"
+            android:maxLines="1"
             android:textColorHint="@color/silver"
             android:drawableStart="@drawable/ic_google"
             android:drawablePadding="10dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            tools:ignore="RtlSymmetry" />
+            tools:ignore="RtlSymmetry,TextFields,VisualLintTextFieldSize"
+            android:importantForAutofill="no" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btnFilter"

@@ -3,18 +3,16 @@ package com.example.shemajamebeli__5.contacts.model
 import com.squareup.moshi.Json
 
 data class ContactItem(
-    @Json(name = "id") val id: Int,
-    @Json(name = "image") val image: String,
-    @Json(name = "owner") val owner: String,
-    @Json(name = "last_message") val last_message: String,
-    @Json(name = "last_active") val last_active: String,
-    @Json(name = "unread_messages") val unread_messages: Int,
-    @Json(name = "is_typing") val is_typing: Boolean,
-    @Json(name = "laste_message_type") val laste_message_type: String
+    @field:Json(name = "id") val id: Int,
+    @field:Json(name = "image") val image: String,
+    @field:Json(name = "owner") val owner: String,
+    @field:Json(name = "last_message") val lastMessage: String,
+    @field:Json(name = "last_active") val lastActive: String,
+    @field:Json(name = "unread_messages") val unreadMessages: Int,
+    @field:Json(name = "is_typing") val isTyping: Boolean,
+    @field:Json(name = "laste_message_type") val lastMessageType: String
 )
 
-enum class MessageType(val type: String){
-    TEXT("text"),
-    VOICE("voice"),
-    FILE("file")
+enum class MessageType(val type: String) {
+    TEXT("text"), VOICE("voice"), FILE("file")
 }
